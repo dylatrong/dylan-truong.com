@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dylan Truong | Home</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.png">
+
+    <style>
+        /* --- CSS VARIABLES & RESET --- */
+        :root {
+            --bg-color: #ffffff;
+            --bg-secondary: #f8f9fa; /* Very light grey for slight contrast */
+            --text-primary: #111111;
+            --text-secondary: #555555;
+            --accent-color: #111111; /* Solid black for buttons/highlights */
+            
+            /* School Brand Colors */
+            --uncc-green: #00703C;
+            --spcc-blue: #007FAE;
+
+            --section-spacing: 120px;
+            --font-heading: 'Poppins', sans-serif;
+            --font-body: 'Inter', sans-serif;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        body {
+            background-color: var(--bg-color);
+            color: var(--text-primary);
+            font-family: var(--font-body);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        h1, h2, h3, h4, h5 {
+            font-family: var(--font-heading);
+            font-weight: 600;
+            line-height: 1.2;
+        }
+
+        a {
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.3s ease;
+        }
+
+        /* Utility Classes */
+        .container {
+            width: 90%;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .section-padding {
+            padding-top: var(--section-spacing);
+            padding-bottom: var(--section-spacing);
+        }
+
+        /* --- NAVIGATION --- */
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 5%;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            background: transparent;
+            transition: background 0.3s ease, padding 0.3s ease;
+        }
+
+        .navbar.scrolled {
+            background: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+            padding: 15px 5%;
+        }
+
+        .logo {
+            font-family: var(--font-heading);
+            font-weight: 700;
+            font-size: 1.2rem;
+            letter-spacing: 1px;
+            text-transform: uppercase;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 40px;
+        }
+
+        .nav-links a {
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: var(--text-secondary);
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: -5px;
+            left: 0;
+            background-color: var(--accent-color);
+            transition: width 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            color: var(--text-primary);
+        }
+
+        .nav-links a:hover::after {
+            width: 100%;
+        }
+
+        /* --- HERO SECTION --- */
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+            position: relative;
+        }
+
+        .hero-container {
+            display: grid;
+            grid-template-columns: 1.2fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero-text h1 {
+            font-size: clamp(3rem, 5vw, 5rem);
+            text-transform: uppercase;
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .hero-text h2 {
+            font-family: var(--font-body);
+            font-weight: 400;
+            font-size: 1.25rem;
+            color: var(--text-secondary);
+            margin-bottom: 40px;
+            max-width: 500px;
+        }
+
+        .btn-primary {
+            display: inline-block;
+            background-color: var(--accent-color);
+            color: white;
+            padding: 15px 35px;
+            border-radius: 30px;
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: transform 0.3s ease, background-color 0.3s ease;
+        }
+
+        .btn-primary:hover {
+            transform: translateY(-3px);
+            background-color: #333;
+            color: white;
+        }
+
+        .hero-image-wrapper {
+            position: relative;
+        }
+
+        .hero-image-wrapper img {
+            width: 100%;
+            height: auto;
+            max-height: 700px;
+            object-fit: cover;
+            border-radius: 12px;
+            box-shadow: 20px 20px 60px rgba(0,0,0,0.05);
+            filter: grayscale(10%);
+            transition: all 0.5s ease;
+        }
+        
+        .hero-image-wrapper:hover img {
+             filter: grayscale(0%);
+             box-shadow: 25px 25px 70px rgba(0,0,0,0.08);
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 40px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            color: var(--text-secondary);
+            font-size: 0.8rem;
+            font-weight: 500;
+            animation: bounce 2s infinite;
+        }
+
+        .scroll-indicator svg {
+            margin-top: 10px;
+            width: 20px;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% {transform: translateX(-50%) translateY(0);}
+            40% {transform: translateX(-50%) translateY(-10px);}
+            60% {transform: translateX(-50%) translateY(-5px);}
+        }
+
+        /* --- PORTFOLIO SECTION --- */
+        .section-header {
+            margin-bottom: 60px;
+        }
+
+        .section-title {
+            font-size: 2rem;
+            text-transform: uppercase;
+            margin-bottom: 10px;
+        }
+
+        .portfolio-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .project-card {
+            flex: 1 1 350px;
+            max-width: 450px; 
+            width: 100%;
+        }
+
+        .project-image {
+            width: 100%;
+            aspect-ratio: 4 / 3;
+            background-color: var(--bg-secondary);
+            overflow: hidden;
+            border-radius: 8px;
+            margin-bottom: 20px;
+        }
+
+        .project-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.5s ease;
+        }
+
+        .project-card:hover .project-image img {
+            transform: scale(1.05);
+        }
+
+        .project-info h3 {
+            font-size: 1.2rem;
+            margin-bottom: 5px;
+        }
+
+        .project-tags {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        /* --- EDUCATION SECTION STYLES --- */
+        .education-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .edu-card {
+            background-color: var(--bg-secondary);
+            padding: 40px;
+            border-radius: 12px;
+            border-top: 5px solid transparent;
+            transition: transform 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .edu-card:hover {
+            transform: translateY(-5px);
+        }
+
+        /* The Colored Accents */
+        .edu-card.uncc {
+            border-top-color: var(--uncc-green);
+        }
+
+        .edu-card.spcc {
+            border-top-color: var(--spcc-blue);
+        }
+
+        .edu-card h3 {
+            font-size: 1.4rem;
+            margin-bottom: 5px;
+        }
+
+        .edu-location {
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--text-secondary);
+            margin-bottom: 25px;
+            display: inline-block;
+        }
+
+        .edu-details {
+            border-top: 1px solid rgba(0,0,0,0.05);
+            padding-top: 20px;
+        }
+
+        .degree-info {
+            font-weight: 600;
+            font-size: 1.1rem;
+            margin-bottom: 5px;
+        }
+
+        .grad-date {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        /* --- FOOTER --- */
+        .footer {
+            background-color: var(--bg-secondary);
+            text-align: center;
+            padding: 100px 0;
+        }
+
+        .footer h2 {
+            font-size: 3rem;
+            margin-bottom: 30px;
+        }
+
+        /* Email link specific style */
+        .footer-email {
+            font-size: 1.2rem;
+            display: inline-block;
+        }
+        
+        .footer-email:hover {
+            text-decoration: underline;
+            color: var(--text-secondary);
+        }
+
+        .footer-links {
+            margin-top: 40px;
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-bottom: 40px;
+        }
+        
+        .footer-links a {
+             font-weight: 600;
+             text-transform: uppercase;
+             font-size: 0.9rem;
+             letter-spacing: 1px;
+        }
+
+        .validation-section {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            opacity: 0.8;
+        }
+        
+        .validation-section a {
+            position: relative;
+        }
+        
+        .validation-section a:hover {
+            color: var(--accent-color);
+            text-decoration: underline;
+        }
+
+        /* --- RESPONSIVE DESIGN --- */
+        @media (max-width: 900px) {
+            .hero-container {
+                grid-template-columns: 1fr;
+                text-align: center;
+                gap: 40px;
+            }
+            
+             .hero {
+                padding-top: 120px;
+                align-items: flex-start;
+            }
+
+            .hero-text h2 {
+                margin: 0 auto 40px auto;
+            }
+
+            .hero-image-wrapper {
+                max-width: 500px;
+                margin: 0 auto;
+            }
+            
+            .nav-links {
+                display: none;
+            }
+
+            .education-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Dylan Truong</div>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#work">Work</a>
+            <a href="#education">Education</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero container">
+            <div class="hero-container">
+                <div class="hero-text">
+                    <h1>A UX/UI Researcher & Designer.</h1>
+                    <h2>I create websites, programs and projects that balance creativity, functionality and aesthetics.</h2>
+                    <a href="#contact" class="btn-primary">Contact Me</a>
+                </div>
+                <div class="hero-image-wrapper">
+                    <img src="images/headshot.jpg" alt="Portrait of Dylan Truong">
+                </div>
+            </div>
+            
+            <a href="#about" class="scroll-indicator">
+                <span>Scroll Down</span>
+                <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19.5 8.25l-7.5 7.5-7.5-7.5" />
+                </svg>
+            </a>
+        </section>
+
+        <section id="about" class="container section-padding" style="max-width: 800px; text-align: center;">
+             <h3 class="section-title" style="margin-bottom: 30px;">About Me</h3>
+             <p style="font-size: 1.1rem; color: var(--text-secondary);">
+                 I am an up and coming UX/UI designer currently pursuing his BA in Computer Science: Human Computer Interaction at UNC Charlotte. With a passion for blending creativity and technology, I specialize in crafting intuitive and visually appealing digital experiences.
+             </p>
+        </section>
+
+        <section id="work" class="container section-padding">
+            <div class="section-header">
+                <h3 class="section-title">Selected Works</h3>
+            </div>
+
+            <div class="portfolio-grid">
+                <a href="#" class="project-card">
+                    <div class="project-image">
+                        <img src="images/3dprinter.jpg" alt="Ender 3 Pro 3D printer">
+                    </div>
+                    <div class="project-info">
+                        <h3>3D Printing Portfolio</h3>
+                        <p class="project-tags">FDM Printing</p>
+                    </div>
+                </a>
+
+                <a href="#" class="project-card">
+                    <div class="project-image">
+                         <img src="https://images.unsplash.com/photo-1600132806370-bf17e65e942f?ixlib=rb-4.0.3&auto=format&fit=crop&w=1094&q=80" alt="Project Two">
+                    </div>
+                    <div class="project-info">
+                        <h3>Research Portfolio</h3>
+                        <p class="project-tags">User research methods</p>
+                    </div>
+                </a>
+
+                <a href="#" class="project-card">
+                    <div class="project-image">
+                         <img src="https://images.unsplash.com/photo-1581291518857-4e27b48ff24e?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Project Three">
+                    </div>
+                    <div class="project-info">
+                        <h3>Design Portfolio</h3>
+                        <p class="project-tags">Web Development</p>
+                    </div>
+                </a>
+                  <a href="#" class="project-card">
+                    <div class="project-image">
+                         <img src="images/daftpunkthomas.jpg" alt="Daft Punk Thomas Helmet">
+                    </div>
+                    <div class="project-info">
+                        <h3>Cosplay</h3>
+                        <p class="project-tags">Custom props and costumes.</p>
+                    </div>
+                </a>
+                <a href="#" class="project-card">
+                    <div class="project-image">
+                         <img src="https://images.unsplash.com/photo-1586281380349-632531db7ed4?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Resume Preview">
+                    </div>
+                    <div class="project-info">
+                        <h3>Resume</h3>
+                        <p class="project-tags">Resume & Cover Letter (12/12/2025)</p>
+                    </div>
+                </a>
+            </div>
+        </section>
+
+        <section id="education" class="container section-padding">
+             <div class="section-header">
+                 <h3 class="section-title">Education</h3>
+             </div>
+
+             <div class="education-grid">
+                 
+                 <div class="edu-card uncc">
+                     <h3>UNC Charlotte</h3>
+                     <span class="edu-location">Charlotte, NC</span>
+                     <div class="edu-details">
+                         <p class="degree-info">B.A. Computer Science (HCI)</p>
+                         <p class="grad-date">Expected Graduation: July 2026</p>
+                     </div>
+                 </div>
+
+                 <div class="edu-card spcc">
+                     <h3>South Piedmont C.C.</h3>
+                     <span class="edu-location">Monroe, NC</span>
+                     <div class="edu-details">
+                         <p class="degree-info">Associate in Arts</p>
+                         <p class="grad-date">Graduated: July 2024</p>
+                     </div>
+                 </div>
+
+             </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <h2>Let's Work Together.</h2>
+            
+            <a href="mailto:dylatrong@proton.me" class="footer-email">dylatrong@proton.me</a>
+            
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/dylan-truong-386aa1234/">LinkedIn</a>
+                <a href="https://www.instagram.com/that_one_astronomer/">Instagram</a>
+            </div>
+
+            <div class="validation-section">
+                <a href="https://validator.w3.org/check?uri=referer" target="_blank">Validate HTML</a>
+                <span>|</span>
+                <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">Validate CSS</a>
+                <span>|</span>
+                <a href="https://wave.webaim.org/" target="_blank">Accessibility</a>
+            </div>
+        </div>
+    </footer>
+
+
+    <script>
+        // Wait for DOM to load
+        document.addEventListener("DOMContentLoaded", () => {
+            
+            const navbar = document.querySelector('.navbar');
+
+            // Function to handle scroll events for the navigation bar
+            const handleScroll = () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            };
+
+            // Listen for scroll events
+            window.addEventListener('scroll', handleScroll);
+
+            // Smooth scrolling for navigation links
+            document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+                anchor.addEventListener('click', function (e) {
+                    e.preventDefault();
+                    const targetId = this.getAttribute('href');
+                    const targetElement = document.querySelector(targetId);
+                    
+                    if (targetElement) {
+                        targetElement.scrollIntoView({
+                            behavior: 'smooth'
+                        });
+                    }
+                });
+            });
+        });
+    </script>
+</body>
+</html>
