@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dylan Truong | Cosplay Portfolio</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    <link rel="icon" href="images/favicon.png">
+
+    <link rel="stylesheet" href="styles/styles.css"> 
+</head>
+<body>
+
+    <nav class="navbar">
+        <a href="index.html" class="logo">Dylan Truong</a>
+        <div class="nav-links">
+            <a href="index.html">Home</a>
+            <a href="index.html#about">About</a>
+            <a href="index.html#work">Work</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+    <main>
+        <section class="hero-small container">
+            <div class="hero-text-center">
+                <h1>The Workshop</h1>
+                <h2>Bringing digital characters to life through foam, 3D printing, and electronics.</h2>
+            </div>
+        </section>
+
+        <section class="container section-padding">
+            <div class="section-header">
+                <h3 class="section-title">Featured Builds</h3>
+                <p style="color: var(--text-secondary);">Click on any image to view the full gallery.</p>
+            </div>
+
+            <div class="portfolio-grid">
+                
+                <div class="project-card">
+                    <div class="project-image pointer-cursor" onclick="openLightbox('daftpunk')">
+                        <img src="images/daftpunkthomas.jpg" alt="Daft Punk Thomas Helmet">
+                        <div class="overlay-icon">📷 View Gallery</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Thomas Bangalter Helmet</h3>
+                        <p class="project-tags">3D Printing, LED Matrix, Arduino</p>
+                        <p class="project-description">
+                            A fully functional replica featuring a custom-programmed LED matrix display. 
+                            Modeled in Fusion 360, printed in PETG, and finished with automotive-grade chrome paint. 
+                            Powered by an Arduino Mega.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image pointer-cursor" onclick="openLightbox('armor')">
+                         <img src="images/cosplay/masterchief3.jpg" alt="Video Game Armor">
+                         <div class="overlay-icon">📷 View Gallery</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Master Chief Armor</h3>
+                        <p class="project-tags">EVA Foam, Weathering</p>
+                        <p class="project-description">
+                            Complete suit fabrication using high-density EVA foam. Techniques used include heat forming, 
+                            dremel carving for battle damage, and acrylic weathering to achieve a realistic "worn" aesthetic.
+                        </p>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-image pointer-cursor" onclick="openLightbox('weapon')">
+                         <img src="https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Prop Weapon">
+                         <div class="overlay-icon">📷 View Gallery</div>
+                    </div>
+                    <div class="project-info">
+                        <h3>Prop Weaponry</h3>
+                        <p class="project-tags">Laser Cutting, Painting</p>
+                        <p class="project-description">
+                            1:1 scale prop replica constructed from laser-cut MDF and 3D printed components. 
+                            Features a functional reloading mechanism and hand-painted weathering details.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="armory-banner">
+            <div class="container armory-content">
+                <div class="armory-text">
+                    <h2>The Armory</h2>
+                    <p class="founded-date">EST. OCTOBER 2025</p>
+                    <p class="description">
+                        A community dedicated to the art of cosplay creation. We teach foam smithing, 
+                        3D printing, and prop fabrication to builders of all skill levels.
+                    </p>
+                    <a href="https://www.dylatrong.com/the-armory" class="btn-primary btn-inverted">Visit The Armory</a>
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <footer id="contact" class="footer">
+        <div class="container">
+            <h2>Let's Build Together.</h2>
+            <a href="mailto:dylatrong@proton.me" class="footer-email">dylatrong@proton.me</a>
+            <div class="footer-links">
+                <a href="https://www.linkedin.com/in/dylan-truong-386aa1234/">LinkedIn</a>
+                <a href="https://www.instagram.com/that_one_astronomer/">Instagram</a>
+            </div>
+        </div>
+    </footer>
+
+    <div id="lightbox" class="lightbox">
+        <span class="close-btn" onclick="closeLightbox()">&times;</span>
+        <a class="prev" onclick="changeSlide(-1)">&#10094;</a>
+        <a class="next" onclick="changeSlide(1)">&#10095;</a>
+        
+        <div class="lightbox-content">
+            <img id="lightbox-img" src="" alt="Gallery Image">
+            <div id="caption" class="caption"></div>
+        </div>
+    </div>
+
+    <script>
+        // --- NAVBAR SCROLL EFFECT ---
+        document.addEventListener("DOMContentLoaded", () => {
+            const navbar = document.querySelector('.navbar');
+            window.addEventListener('scroll', () => {
+                if (window.scrollY > 50) navbar.classList.add('scrolled');
+                else navbar.classList.remove('scrolled');
+            });
+        });
+
+        // --- LIGHTBOX DATA & LOGIC ---
+        
+        // 1. DEFINE YOUR IMAGE GALLERIES HERE
+        const galleries = {
+            'daftpunk': [
+                { src: 'images/cosplay/daft2.jpg', caption: 'Thomas Helmet - Front View' },
+                { src: 'images/cosplay/daft1.jpg', caption: 'Electronics Internal Wiring' },
+                { src: 'images/cosplay/daft3.jpg', caption: 'LED Matrix Testing' }
+            ],
+            'armor': [
+                { src: 'images/cosplay/masterchief3.jpg', caption: 'Featured at Retro Game Con 2022' },
+                { src: 'images/cosplay/masterchief1.jpg', caption: 'Thumbs up Test' },
+                { src: 'images/cosplay/masterchief2.jpg', caption: 'WIP Helmet circa 2021' }
+            ],
+            'weapon': [
+                { src: 'https://images.unsplash.com/photo-1612036782180-6f0b6cd846fe?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80', caption: 'Finished Prop' },
+                { src: 'https://images.unsplash.com/photo-1589254065878-42c9da997008?auto=format&fit=crop&w=800&q=80', caption: '3D Printed Components' }
+            ]
+        };
+
+        let currentGallery = [];
+        let currentIndex = 0;
+
+        function openLightbox(galleryId) {
+            currentGallery = galleries[galleryId];
+            if (!currentGallery) return; // Safety check
+            
+            currentIndex = 0;
+            showSlide(currentIndex);
+            document.getElementById('lightbox').style.display = 'flex';
+            document.body.style.overflow = 'hidden'; // Stop background scrolling
+        }
+
+        function closeLightbox() {
+            document.getElementById('lightbox').style.display = 'none';
+            document.body.style.overflow = 'auto'; // Re-enable scrolling
+        }
+
+        function changeSlide(n) {
+            currentIndex += n;
+            if (currentIndex >= currentGallery.length) currentIndex = 0;
+            if (currentIndex < 0) currentIndex = currentGallery.length - 1;
+            showSlide(currentIndex);
+        }
+
+        function showSlide(index) {
+            const imgElement = document.getElementById('lightbox-img');
+            const captionElement = document.getElementById('caption');
+            
+            imgElement.src = currentGallery[index].src;
+            captionElement.innerText = currentGallery[index].caption;
+        }
+
+        // Close modal if clicking outside the image
+        document.getElementById('lightbox').addEventListener('click', function(e) {
+            if (e.target === this) {
+                closeLightbox();
+            }
+        });
+    </script>
+</body>
+</html>
