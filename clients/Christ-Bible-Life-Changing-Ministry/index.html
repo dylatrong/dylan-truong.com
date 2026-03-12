@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,6 +17,8 @@
     --text-color: #333333;
     --bg-light: #f7fafc;
     --white: #ffffff;
+    --cashapp-color: #00D632;
+    --zelle-color: #7417EA;
 }
 
 /* =====================================================
@@ -95,6 +96,11 @@ nav {
     color: var(--secondary-color);
 }
 
+.nav-links .donate-nav {
+    color: var(--primary-color);
+    font-weight: bold;
+}
+
 /* Mobile Menu Button */
 .menu-toggle {
     display: none;
@@ -112,8 +118,8 @@ nav {
         rgba(44, 82, 130, 0.85),
         rgba(44, 82, 130, 0.85)
     ),
-    url("cross.jpg") center/cover;
-
+    url("images/cross.jpg") center/cover;
+    background-color: var(--primary-color); /* Fallback */
     height: 100vh;
     display: flex;
     align-items: center;
@@ -145,12 +151,27 @@ nav {
     border-radius: 5px;
     font-weight: bold;
     transition: background 0.3s, transform 0.2s;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
 }
 
 .btn:hover {
     background-color: #0097a7;
     color: var(--white);
     transform: translateY(-2px);
+}
+
+.btn-secondary {
+    background-color: transparent;
+    color: var(--white);
+    border: 2px solid var(--white);
+    margin-left: 10px;
+}
+
+.btn-secondary:hover {
+    background-color: var(--white);
+    color: var(--primary-color);
 }
 
 /* =====================================================
@@ -213,7 +234,67 @@ section {
 }
 
 /* =====================================================
-   GALLERY (Flexbox unchanged)
+   DONATE SECTION
+===================================================== */
+.donate-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 1.5rem;
+    flex-wrap: wrap;
+    margin-top: 2rem;
+}
+
+.btn-cashapp, .btn-zelle {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 25px;
+    border-radius: 5px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    border: none;
+    cursor: pointer;
+    text-decoration: none;
+    transition: background 0.3s, transform 0.2s;
+}
+
+.btn-cashapp {
+    background-color: var(--cashapp-color);
+    color: var(--white);
+}
+
+.btn-cashapp:hover {
+    background-color: #00b329;
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.btn-zelle {
+    background-color: var(--zelle-color);
+    color: var(--white);
+}
+
+.btn-zelle:hover {
+    background-color: #5b12b8;
+    color: var(--white);
+    transform: translateY(-2px);
+}
+
+.zelle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.zelle-email-text {
+    font-size: 0.9rem;
+    color: #555;
+}
+
+/* =====================================================
+   GALLERY
 ===================================================== */
 .gallery-grid {
     display: flex;
@@ -231,6 +312,7 @@ section {
     cursor: pointer;
     box-shadow: 0 4px 6px rgba(0,0,0,0.1);
     transition: transform 0.3s ease, box-shadow 0.3s ease;
+    background-color: #eee; /* Fallback for missing images */
 }
 
 .gallery-img:hover {
@@ -250,6 +332,81 @@ section {
         flex: 0 0 100%;
         max-width: 100%;
     }
+}
+
+/* =====================================================
+   DONATIONS
+===================================================== */
+/* Donate section alignment */
+.donate-center {
+    text-align: center;
+    max-width: 700px;
+    margin: auto;
+}
+
+/* Button container */
+.donate-buttons {
+    margin-top: 25px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+}
+
+/* Base button style */
+.donate-btn {
+    display: inline-block;
+    padding: 14px 28px;
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: 10px;
+    text-decoration: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    box-shadow: 0 6px 14px rgba(0,0,0,0.15);
+}
+
+/* Hover animation */
+.donate-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 18px rgba(0,0,0,0.2);
+}
+
+/* Cash App styling */
+.btn-cashapp {
+    background: #00d632;
+    color: white;
+}
+
+.btn-cashapp:hover {
+    background: #00bf2a;
+}
+
+/* Zelle styling */
+.btn-zelle {
+    background: #6d1ed4;
+    color: white;
+}
+
+.btn-zelle:hover {
+    background: #5b19b2;
+}
+
+/* Zelle email text */
+.zelle-email-text {
+    display: block;
+    margin-top: 8px;
+    font-size: 14px;
+    color: #666;
+    font-family: monospace;
+}
+
+/* Zelle container alignment */
+.zelle-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
 }
 
 /* =====================================================
@@ -329,10 +486,9 @@ footer {
 }
 
 /* =====================================================
-   RESPONSIVE NAV
+   RESPONSIVE NAV & LAYOUT
 ===================================================== */
 @media (max-width: 768px) {
-
     .nav-links {
         display: none;
         flex-direction: column;
@@ -348,6 +504,11 @@ footer {
     .nav-links.active {
         display: flex;
     }
+    
+    .nav-links li {
+        text-align: center;
+        padding: 10px 0;
+    }
 
     .menu-toggle {
         display: block;
@@ -355,6 +516,12 @@ footer {
 
     .hero-content h1 {
         font-size: 2.2rem;
+    }
+    
+    .hero-content .btn-secondary {
+        margin-left: 0;
+        margin-top: 15px;
+        display: block;
     }
 
     .contact-grid {
@@ -385,6 +552,7 @@ footer {
         <li><a href="#services">Visit Us</a></li>
         <li><a href="#gallery">Gallery</a></li>
         <li><a href="#contact">Contact</a></li>
+        <li><a href="#donate" class="donate-nav">Donate</a></li>
     </ul>
 </nav>
 </header>
@@ -401,7 +569,6 @@ footer {
     <a href="#services" class="btn">Join Us This Week</a>
 </div>
 </section>
-
 
     <section id="about">
         <h2 class="section-title">Our Mission</h2>
@@ -436,16 +603,53 @@ footer {
         </section>
     </div>
 
-    <section id="gallery">
-        <h2 class="section-title">Photo Gallery</h2>
-        <div class="gallery-grid">
-            <img src="images/photo_1.JPEG" alt="Pic 1" class="gallery-img">
-            <img src="images/photo_2.JPEG" alt="Pic 2" class="gallery-img">
-            <img src="images/photo_3.JPEG" alt="Pic 3" class="gallery-img">
-            <img src="images/photo_4.JPEG" alt="Pic 4" class="gallery-img">
-            <img src="images/photo_5.JPEG" alt="Pic 5" class="gallery-img">
+<!-- DONATE SECTION -->
+<section id="donate">
+    <h2 class="section-title">Support Our Ministry</h2>
+    <div class="mission-single-column donate-center">
+        <p>
+            Your generous giving helps us continue our mission of feeding the community,
+            offering support to those in need, and spreading the word of God.
+            We offer secure, fee-free ways to give online.
+        </p>
+
+        <div class="donate-buttons">
+
+            <!-- Cash App Button -->
+            <a href="https://cash.app/$cblcministries"
+               target="_blank"
+               rel="noopener noreferrer"
+               class="donate-btn btn-cashapp">
+                Give via Cash App
+            </a>
+
+            <!-- Zelle Button -->
+            <div class="zelle-container">
+                <button onclick="copyZelleEmail()" id="zelleCopyBtn" class="donate-btn btn-zelle">
+                    Copy Zelle Email
+                </button>
+
+                <span id="zelleEmail" class="zelle-email-text">
+                    cblcministries@gmail.com
+                </span>
+            </div>
+
         </div>
-    </section>
+    </div>
+</section>
+
+<div class="bg-light">
+        <section id="gallery">
+            <h2 class="section-title">Photo Gallery</h2>
+            <div class="gallery-grid">
+                <img src="images/photo_1.JPEG" alt="Pic 1" class="gallery-img">
+                <img src="images/photo_2.JPEG" alt="Pic 2" class="gallery-img">
+                <img src="images/photo_3.JPEG" alt="Pic 3" class="gallery-img">
+                <img src="images/photo_4.JPEG" alt="Pic 4" class="gallery-img">
+                <img src="images/photo_5.JPEG" alt="Pic 5" class="gallery-img">
+            </div>
+        </section>
+    </div>
 
     <div id="imageModal" class="modal">
         <span class="close-modal">&times;</span>
@@ -468,14 +672,14 @@ footer {
             </div>
         </div>
     </section>
-<!-- Remaining HTML structure unchanged visually, just cleaner semantics -->
 
 </main>
 
 <footer>
     <p><strong>Christ Bible Life Changing Ministry</strong></p>
     <p>Moving from survival toward self-sufficiency and purpose.</p>
-    <p>&copy; <span id="year"></span> Christ Bible Life Changing Ministry.</p>
+    <p>&copy; <span id="year"></span> Christ Bible Life Changing Ministry. <br>
+    Designed by <a href="https://www.dylan-truong.com" target="_blank" rel="noopener noreferrer" style="color: var(--secondary-color); text-decoration: none;">Dylan Truong Designs</a>.</p>
 </footer>
 
 <script>
@@ -491,11 +695,19 @@ menuToggle.addEventListener('click', () => {
     navLinks.classList.toggle('active');
 });
 
+// Close mobile menu when a link is clicked
+const navItems = document.querySelectorAll('.nav-links a');
+navItems.forEach(item => {
+    item.addEventListener('click', () => {
+        navLinks.classList.remove('active');
+        menuToggle.setAttribute('aria-expanded', 'false');
+    });
+});
+
 /* =====================================================
    DYNAMIC YEAR
 ===================================================== */
-document.getElementById('year').textContent =
-    new Date().getFullYear();
+document.getElementById('year').textContent = new Date().getFullYear();
 
 /* =====================================================
    HEADER SHRINK
@@ -506,6 +718,40 @@ window.addEventListener('scroll', () => {
     header.style.padding =
         window.scrollY > 50 ? '0.5rem 0' : '1rem 0';
 });
+
+/* =====================================================
+   DONATE COPY FUNCTION (Safe/Secure execution)
+===================================================== */
+function copyZelleEmail() {
+    const emailText = document.getElementById('zelleEmail').innerText;
+    
+    // Create a temporary textarea to safely copy the text 
+    const tempInput = document.createElement("textarea");
+    tempInput.value = emailText;
+    // Move it off-screen
+    tempInput.style.position = "absolute";
+    tempInput.style.left = "-9999px";
+    document.body.appendChild(tempInput);
+    
+    // Select and copy
+    tempInput.select();
+    document.execCommand("copy");
+    
+    // Cleanup
+    document.body.removeChild(tempInput);
+    
+    // UI Feedback
+    const copyBtn = document.getElementById('zelleCopyBtn');
+    const originalText = copyBtn.innerText;
+    copyBtn.innerText = "✓ Copied Successfully!";
+    copyBtn.style.backgroundColor = "#2c5282"; // Turn blue to indicate success
+    
+    // Reset button after 3 seconds
+    setTimeout(() => {
+        copyBtn.innerText = originalText;
+        copyBtn.style.backgroundColor = "var(--zelle-color)";
+    }, 3000);
+}
 
 /* =====================================================
    GALLERY MODAL (Keyboard Accessible)
