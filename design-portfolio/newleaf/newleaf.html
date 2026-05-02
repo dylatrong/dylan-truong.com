@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dylan Truong | NewLeaf Case Study</title>
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+    
+    <link rel="stylesheet" href="./../../styles/styles.css">
+
+    <style>
+        /* Specific overrides for the case study layout using your variables */
+        .case-study-content {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        .case-study-content h2 {
+            font-size: 2rem;
+            color: var(--accent-color);
+            margin-bottom: 20px;
+            margin-top: 60px;
+            border-bottom: 2px solid var(--bg-secondary);
+            padding-bottom: 10px;
+        }
+        .case-study-content h3 {
+            font-size: 1.4rem;
+            margin-top: 40px;
+            margin-bottom: 15px;
+        }
+        .case-study-content p, .case-study-content ul {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 20px;
+        }
+        .case-study-content ul {
+            padding-left: 25px;
+        }
+        .case-study-content li {
+            margin-bottom: 10px;
+        }
+        .cs-image-wrapper {
+            background-color: var(--bg-secondary);
+            border-radius: 8px;
+            padding: 20px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        .cs-image-wrapper img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 4px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.05);
+        }
+        .img-caption {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+            margin-top: 15px;
+            font-style: italic;
+        }
+    </style>
+</head>
+<body>
+
+    <nav class="navbar">
+        <div class="logo">Dylan Truong</div>
+        <div class="nav-links">
+            <a href="./../../index.html">Home</a>
+            <a href="./../../design-portfolio.html">Design</a>
+            <a href="./../../research-portfolio.html">Research</a>
+            <a href="#contact">Contact</a>
+        </div>
+    </nav>
+
+
+    <main>
+        <section class="hero-small container section-padding">
+            <div class="hero-text-center">
+                <h1>NewLeaf</h1>
+                <h2>A comprehensive redesign of the Happify platform to help young adults manage daily stress through bite-sized activities.</h2>
+                <div style="margin-top: 30px;">
+                    <p style="font-weight: 500;">Role: Developer & Presenter Lead | Group #1</p>
+                </div>
+            </div>
+        </section>
+
+        <section class="container section-padding" style="padding-top: 0;">
+            <div class="case-study-content">
+                
+                <h2>1. Defining the Problem</h2>
+                <p>We evaluated the original Happify platform and discovered multiple usability issues that created friction for users seeking mental health support. The platform felt visually outdated with inconsistent spacing and unnecessary visual clutter.</p>
+                <ul>
+                    <li><strong>Lack of User Control:</strong> The chat lesson locked users into a linear flow without an escape button or progress bar, removing their ability to navigate freely.</li>
+                    <li><strong>Unclear System Status:</strong> Activity tiles on the "Instant Play" page were greyed out without explanation, leaving users confused about how to unlock them.</li>
+                    <li><strong>Forced Onboarding:</strong> Users were forced to create an account immediately without an affordance to return to the homepage to explore the site first.</li>
+                </ul>
+
+                <div class="cs-image-wrapper">
+                    <img src="images/Happify-Cropped.jpg" alt="Original Happify Homepage Interface">
+                    <p class="img-caption">The original Happify interface pictured Jan 2026.</p>
+                </div>
+
+                <h2>2. Process & Design Decisions</h2>
+                <p>Our redesign, NewLeaf, aimed to resolve these issues by prioritizing clear visual hierarchy, standardized navigation, and a calming aesthetic.</p>
+
+                <h3>Low-Fidelity Wireframing & Early Revisions</h3>
+                <p>During our initial peer testing on low-fidelity concepts, we found that users struggled with navigation due to inconsistent back buttons appearing in different locations and styles. To fix this, we standardized back buttons to a single icon style in the same location across all screens. We also noticed users confused description boxes with action buttons, so we hid full descriptions behind clickable elements to reduce clutter.</p>
+
+                <h3>Mid-Process Structural Changes</h3>
+                <p>The "Explore Tracks" task caused the most hesitation during testing. Users were experiencing unnecessary friction clicking through broad categories just to find specific tracks.</p>
+                <ul>
+                    <li><strong>Decision:</strong> We reorganized the search results layout to display individual tracks as the main results.</li>
+                    <li><strong>Outcome:</strong> We bypassed the category page entirely, streamlining the navigation path and reducing the required clicks to start an activity.</li>
+                </ul>
+
+                <div class="cs-image-wrapper">
+                    <img src="images/low-fidelity-search.jpg" alt="NewLeaf Low Fidelity search and results Wireframe">
+                    <p class="img-caption">Revised layout for search results prioritizing individual tracks over broad categories.</p>
+                </div>
+
+                <h2>3. High-Fidelity Testing & Outcomes</h2>
+                <p>We developed a high-fidelity prototype simulating form validation, an 800ms timed loading delay for track searches, and an interactive dark mode toggle. We tested this prototype with three participants representing our target demographic of young adults.</p>
+
+                <p><strong>Key Findings & Fixes:</strong></p>
+                <ul>
+                    <li><strong>Search Functionality:</strong> One participant misconstrued how to use the search bar. <em>Improvement:</em> We planned to implement a fully functional search bar in the final design.</li>
+                    <li><strong>Intimidating Copy:</strong> Users felt the "Pledge" button to start a track was too formal for a mental health app. <em>Improvement:</em> Changed the text to "I'm in!" or "Start This Step".</li>
+                    <li><strong>Hidden Settings:</strong> A user experienced slight hesitation finding the dark mode toggle hidden in the account menu. <em>Improvement:</em> We moved the toggle to a clearer, more prominent location on the homepage.</li>
+                </ul>
+
+                <h2>4. The Final Product</h2>
+                <p>All participants praised the redesign for its "clean" and "calming" aesthetic that didn't feel cluttered or stressful. By standardizing navigation, reducing mandatory clicks, and providing instant visual feedback, NewLeaf successfully offers an accessible and intuitive experience for stress management.</p>
+
+                <div class="cs-image-wrapper">
+                    <img src="images/high-fidelity-homepage.png" alt="NewLeaf High Fidelity Homepage Prototype">
+                    <p class="img-caption">The final NewLeaf high-fidelity prototype featuring a clean dashboard and dark mode implementation.</p>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="https://www.figma.com/proto/Ua7gpoJUc8dsjDHfZ5RjWz/A5?node-id=170-1604&t=6XXRiAJWGfHMWSf3-1" target="_blank" class="btn-primary">View Figma Prototype</a>
+                </div>
+
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="https://dylan-truong.com/clients/ITIS-4390-Capstone/index.html" target="_blank" class="btn-primary">View Live Prototype</a>
+                </div>
+
+            </div>
+        </section>
+    </main>
+<div data-include="./../../components/footer.html"></div>
+  <script src="./../../scripts/HTMLInclude.min.js"></script>
+
+
+    <script>
+        document.addEventListener("DOMContentLoaded", () => {
+            const navbar = document.querySelector('.navbar');
+
+            const handleScroll = () => {
+                if (window.scrollY > 50) {
+                    navbar.classList.add('scrolled');
+                } else {
+                    navbar.classList.remove('scrolled');
+                }
+            };
+
+            window.addEventListener('scroll', handleScroll);
+        });
+    </script>
+</body>
+</html>

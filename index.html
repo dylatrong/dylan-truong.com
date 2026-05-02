@@ -13,17 +13,7 @@
     <link rel="stylesheet" href="styles/styles.css">
 </head>
 <body>
-
-    <nav class="navbar">
-        <div class="logo">Dylan Truong</div>
-        <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#work">Work</a>
-            <a href="#education">Education</a>
-            <a href="#contact">Contact</a>
-        </div>
-    </nav>
-
+<div data-include="components/header.html"></div>
     <main>
         <section class="hero container">
             <div class="hero-container">
@@ -122,7 +112,7 @@
                          <p class="degree-info">B.A. Computer Science (Human Computer Interaction)</p>
                          <p class="grad-date">Expected Graduation: July 2026</p>
                      </div>
-                 </div> 
+                 </div>
 
                  <div class="edu-card spcc">
                      <h3>South Piedmont C.C.</h3>
@@ -138,29 +128,11 @@
 
     </main>
 
-    <footer id="contact" class="footer">
-        <div class="container">
-            <h2>Let's Work Together.</h2>
-            
-            <a href="mailto:dylatrong@proton.me" class="footer-email">dylatrong@proton.me</a>
-            
-            <div class="footer-links">
-                <a href="https://github.com/dylatrong" target="_blank">GitHub</a>
-                <a href="https://www.linkedin.com/in/dylan-truong-386aa1234/">LinkedIn</a>
-                <a href="https://www.instagram.com/that_one_astronomer/">Instagram</a>
-            </div>
-
-            <div class="validation-section">
-                <a href="https://validator.w3.org/check?uri=referer" target="_blank">Validate HTML</a>
-                <span>|</span>
-                <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">Validate CSS</a>
-                <span>|</span>
-                <a href="https://wave.webaim.org/" target="_blank">Accessibility</a>
-            </div>
-        </div>
-    </footer>
+<div data-include="components/footer.html"></div>
+  <script src="scripts/HTMLInclude.min.js"></script>
 
     <script>
+
         // Wait for DOM to load
         document.addEventListener("DOMContentLoaded", () => {
             
