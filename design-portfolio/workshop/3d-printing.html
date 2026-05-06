@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dylan Truong | 3D Printing</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+        <link rel="icon" href="../../images/favicon.png">
+
+        <link rel="stylesheet" href="../../styles/default.css">
+    </head>
+    <body>
+
+        <nav class="navbar">
+            <div class="logo">Dylan Truong</div>
+            
+            <div class="nav-controls">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
+                    🌓
+                </button>
+
+                <button id="hamburger-btn" class="hamburger-btn" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+            </div>
+
+            <div id="nav-menu" class="nav-menu">
+                <a href="../../index.html">Home</a>
+                <a href="../../design-portfolio/index.html">Design</a>
+                <a href="../../research-portfolio/index.html">Research</a>
+                <a href="../../resume/index.html">Resume</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <main>
+            <section class="hero-small container">
+                <div class="hero-text-center">
+                    <h1>3D Printing Archives</h1>
+                    <h2>FDM manufacturing, functional prototypes, and cosmetic props. Printing since 2022.</h2>
+                </div>
+            </section>
+
+            <section class="container section-padding" style="padding-top: 0;">
+                <div class="section-header">
+                    <h3 class="section-title" style="font-size: 1.5rem; color: var(--text-secondary);">Hardware & Custom Setup</h3>
+                </div>
+                
+                <div class="edu-card" style="border-top-color: var(--accent-color);">
+                    <h3>Custom Cartesian FDM Printer</h3>
+                    <div class="edu-details" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 20px; margin-top: 15px;">
+                        <div>
+                            <p><strong>Mainboard:</strong> BTT SKR Mini E3 V3.0 (Klipper Firmware)</p>
+                            <p><strong>Drivers:</strong> TMC2209 (Sensorless Homing / StealthChop)</p>
+                            <p><strong>Bed Leveling:</strong> BLTouch (5x5 Bicubic Mesh)</p>
+                        </div>
+                        <div>
+                            <p><strong>Build Volume:</strong> 225 x 225 x 250 mm</p>
+                            <p><strong>Kinematics:</strong> Up to 300mm/s Velocity, 3000mm/s² Accel</p>
+                            <p><strong>Extrusion:</strong> 0.4mm Nozzle / Runout Sensor Enabled</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section class="container section-padding" style="padding-top: 0;">
+                <div class="section-header">
+                    <h3 class="section-title" style="font-size: 1.5rem; color: var(--text-secondary);">Featured Prints</h3>
+                </div>
+
+                <div class="portfolio-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1581092580497-e0d23cbdf1dc?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Functional 3D Print">
+                        </div>
+                        <div class="project-info">
+                            <h3>Functional Brackets & Mounts</h3>
+                            <p class="project-tags">PETG / 0.2mm Layer Height</p>
+                            <p class="project-description">Custom modeled components designed in Fusion 360 to handle high mechanical stress and heat resistance.</p>
+                        </div>
+                    </div>
+
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1629814421118-202e77b10e53?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="Cosmetic 3D Print">
+                        </div>
+                        <div class="project-info">
+                            <h3>Cosplay Props & Helmets</h3>
+                            <p class="project-tags">PLA / Post-Processing</p>
+                            <p class="project-description">Large-scale segmented prints welded together, sanded, and painted for a flawless automotive-grade finish.</p>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="images/3dprinter.jpg" alt="Printer Action Shot">
+                        </div>
+                        <div class="project-info">
+                            <h3>Printer Upgrades</h3>
+                            <p class="project-tags">ABS / Tolerances</p>
+                            <p class="project-description">Self-replicated parts and fan ducts engineered to improve part cooling and overall printer reliability.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer id="contact" class="footer">
+            <div class="container">
+                <h2>Let's Work Together.</h2>
+                <a href="mailto:dylan-truong@proton.me" class="footer-email">dylan-truong@proton.me</a>
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/dylan-truong-386aa1234/">LinkedIn</a>
+                    <a href="https://www.instagram.com/that_one_astronomer/">Instagram</a>
+                </div>
+                <div class="validation-section">
+                    <a href="https://validator.w3.org/check?uri=referer" target="_blank">Validate HTML</a>
+                    <span>|</span>
+                    <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">Validate CSS</a>
+                    <span>|</span>
+                    <a href="https://wave.webaim.org/" target="_blank">Accessibility</a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../../scripts/default.js"></script>
+    </body>
+</html>

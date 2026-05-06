@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Dylan Truong | Design Portfolio</title>
+
+        <link rel="preconnect" href="https://fonts.googleapis.com">
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500&family=Poppins:wght@500;600;700&display=swap" rel="stylesheet">
+            <link rel="icon" href="../images/favicon.png">
+
+        <link rel="stylesheet" href="../styles/default.css">
+    </head>
+    <body>
+
+        <nav class="navbar">
+            <div class="logo">Dylan Truong</div>
+            
+            <div class="nav-controls">
+                <button id="theme-toggle" class="icon-btn" aria-label="Toggle Dark Mode">
+                    🌓
+                </button>
+
+                <button id="hamburger-btn" class="hamburger-btn" aria-expanded="false" aria-controls="nav-menu" aria-label="Toggle navigation menu">
+                    <span class="line"></span>
+                    <span class="line"></span>
+                    <span class="line"></span>
+                </button>
+            </div>
+
+            <div id="nav-menu" class="nav-menu">
+                <a href="../index.html">Home</a>
+                <a href="../design-portfolio/index.html">Design Portfolio</a>
+                <a href="../research-portfolio/index.html">Research Portfolio</a>
+                <a href="../resume/index.html">Resume</a>
+                <a href="#contact">Contact</a>
+            </div>
+        </nav>
+
+        <main>
+            <section class="hero-small container">
+                <div class="hero-text-center">
+                    <h1>Design Portfolio</h1>
+                    <h2>A collection of my digital applications, UX/UI case studies, and physical workshop creations.</h2>
+                </div>
+            </section>
+
+            <section class="container section-padding" style="padding-top: 0;">
+                <div class="section-header">
+                    <h3 class="section-title" style="font-size: 1.5rem; color: var(--text-secondary);">Web & UI/UX Design</h3>
+                </div>
+
+                <div class="portfolio-grid">
+                    <a href="clients/newleaf/index.html" class="project-card pointer-cursor">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="NewLeaf Application Design">
+                            <div class="overlay-icon">View Project</div>
+                        </div>
+                        <div class="project-info">
+                            <h3>NewLeaf</h3>
+                            <p class="project-tags">UI/UX Design & Front-End</p>
+                        </div>
+                    </a>
+
+                    <a href="https://www.dylatrong.com/the-armory/" target="_blank" class="project-card pointer-cursor">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1542831371-29b0f74f9713?ixlib=rb-4.0.3&auto=format&fit=crop&w=1170&q=80" alt="The Armory Website">
+                            <div class="overlay-icon">Visit Site</div>
+                        </div>
+                        <div class="project-info">
+                            <h3>The Armory</h3>
+                            <p class="project-tags">Web Design & Community Management</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+
+            <section class="container section-padding" style="padding-top: 0;">
+                <div class="section-header">
+                    <h3 class="section-title" style="font-size: 1.5rem; color: var(--text-secondary);">Workshop & Fabrication</h3>
+                </div>
+
+                <div class="portfolio-grid">
+                    <a href="workshop/index.html" class="project-card pointer-cursor">
+                        <div class="project-image">
+                            <img src="../images/daftpunkthomas.jpg" alt="Daft Punk Thomas Helmet">
+                            <div class="overlay-icon">Enter Workshop</div>
+                        </div>
+                        <div class="project-info">
+                            <h3>The Workshop</h3>
+                            <p class="project-tags">Cosplay & Custom Props</p>
+                            <p class="project-description">A deep dive into my process for creating high-fidelity physical props and costumes.</p>
+                        </div>
+                    </a>
+
+                    <a href="#" class="project-card pointer-cursor">
+                        <div class="project-image">
+                            <img src="../images/3dprinter.jpg" alt="Ender 3 Pro 3D printer">
+                            <div class="overlay-icon">View Prints</div>
+                        </div>
+                        <div class="project-info">
+                            <h3>3D Printing Archives</h3>
+                            <p class="project-tags">CAD & FDM Printing</p>
+                            <p class="project-description">A gallery of my modeled and printed mechanical components and aesthetic pieces.</p>
+                        </div>
+                    </a>
+                </div>
+            </section>
+        </main>
+
+        <footer id="contact" class="footer">
+            <div class="container">
+                <h2>Let's Work Together.</h2>
+
+                <a href="mailto:dylan-truong@proton.me" class="footer-email">dylan-truong@proton.me</a>
+
+                <div class="footer-links">
+                    <a href="https://www.linkedin.com/in/dylan-truong-386aa1234/">LinkedIn</a>
+                    <a href="https://www.instagram.com/that_one_astronomer/">Instagram</a>
+                </div>
+
+                <div class="validation-section">
+                    <a href="https://validator.w3.org/check?uri=referer" target="_blank">Validate HTML</a>
+                    <span>|</span>
+                    <a href="https://jigsaw.w3.org/css-validator/check/referer" target="_blank">Validate CSS</a>
+                    <span>|</span>
+                    <a href="https://wave.webaim.org/" target="_blank">Accessibility</a>
+                </div>
+            </div>
+        </footer>
+
+        <script src="../scripts/default.js"></script>
+    </body>
+</html>
